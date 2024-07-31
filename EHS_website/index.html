@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Selection Page</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f5f5f5; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .button {
+            background: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .button:hover {
+            background: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        .button:active {
+            background: #004494;
+            transform: translateY(0);
+        }
+
+        .form-container {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .form-container-active {
+            display: block;
+        }
+
+        .form-step {
+            display: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .form-step-active {
+            display: block;
+            opacity: 1;
+        }
+
+        .form-navigation {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            background: #004494;
+            transform: translateY(0);
+        }
+
+        .return-button {
+            background: #6c757d;
+            margin-top: 20px;
+        }
+
+        .return-button:hover {
+            background: #5a6268;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"], input[type="radio"] {
+            display: inline-block;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Selection Page -->
+    <div class="container" id="selectionPage">
+        <h1>Main Selection Page</h1>
+        <a href="incidentForm.html" class="button">Incident / Accident Report Form</a>
+        <a href="firstAidForm.html" class="button">First Aid Register Form</a>
+    </div>
+
+    <!-- Incident / Accident Report Form -->
+    <div class="container form-container" id="incidentForm">
+        <!-- Step 1: Type -->
+        <form id="incidentReportForm">
+            <div class="form-step form-step-active">
+                <h2>Type</h2>
+                <label><input type="checkbox" name="type" value="Injury"> Injury</label>
+                <label><input type="checkbox" name="type" value="Fatality"> Fatality</label>
+                <label><input type="checkbox" name="type" value="Environmental Harm"> Environmental Harm</label>
+                <label><input type="checkbox" name="type" value="Work caused illness"> Work caused illness</label>
+                <label><input type="checkbox" name="type" value="Property Damage"> Property Damage</label>
+                <label><input type="checkbox" name="type" value="Near miss"> Near miss</label>
+                <label><input type="checkbox" name="type" value="Other"> Other</label>
+                <div class="form-navigation">
+                    <button type="button" class="next-btn">Next</button>
+                    <button type="button" class="return-button" id="returnToSelectionIncident">Return to Selection Page</button>
+                </div>
+            </div>
+            <!-- Step 2: Personal Details -->
+            <div class="form-step">
+                <h2>Personal Details</h2>
+                <label for="reportedBy">Incident Reported by:</label>
+                <input type="text" id="reportedBy" name="reportedBy" required>
+                <label for="employeeNo">Employee No:</label>
+                <input type="text" id="employeeNo" name="employeeNo" required>
+                <label for="involvedPerson">Involved Person (if different from above):</label>
+                <input type="text" id="involvedPerson" name="involvedPerson">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation">
+                <label for="tel">Tel:</label>
+                <input type="text" id="tel" name="tel">
+                <label for="homeAddress">Home Address:</label>
+                <input type="text" id="homeAddress" name="homeAddress">
+                <label for="workplace">Workplace:</label>
+                <input type="text" id="workplace" name="workplace">
+                <label for="division">Division:</label>
+                <input type="text" id="division" name="division">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber">
+                <label for="immediateManager">Immediate Manager/In charge:</label>
+                <input type="text" id="immediateManager" name="immediateManager">
+                <label for="startTime">Start time:</label>
+                <input type="time" id="startTime" name="startTime">
+                <label for="experience">Experience in the job (years/months):</label>
+                <input type="text" id="experience" name="experience">
+                <label for="workArrangement">Work arrangement:</label>
+                <select id="workArrangement" name="workArrangement">
+                    <option value="Casual">Casual</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div class="form-navigation">
+                    <button type="button" class="prev-btn">Previous</button>
+                    <button type="button" class="next-btn">Next</button>
+                    <button type="button" class="return-button" id="returnToSelectionIncident">Return to Selection Page</button>
+                </div>
+            </div>
+            <!-- Step 3: Incident Details -->
+            <div class="form-step">
+                <h2>Incident Details</h2>
+                <label for="incidentDate">Incident Date:</label>
+                <input type="date" id="incidentDate" name="incidentDate" required>
+                <label for="incidentTime">Time Incident:</label>
+                <input type="time" id="incidentTime" name="incidentTime" required>
+                <label for="dateReported">Date Reported:</label>
+                <input type="date" id="dateReported" name="dateReported" required>
+                <label for="reportedTo">Reported to whom:</label>
+                <input type="text" id="reportedTo" name="reportedTo" required>
+                <label for="event">Event:</label>
+                <input type="text" id="event" name="event" required>
+                <label for="damage">Damage:</label>
+                <textarea id="damage" name="damage" required></textarea>
+                <label for="actionsTaken">Actions Taken:</label>
+                <textarea id="actionsTaken" name="actionsTaken" required></textarea>
+                <label for="injuryType">Injury Type (First aid, Lost time, etc.):</label>
+                <input type="text" id="injuryType" name="injuryType">
+                <label for="bodyLocation">Body location (e.g., left hand):</label>
+                <input type="text" id="bodyLocation" name="bodyLocation">
+                <label for="treatment">Treatment:</label>
+                <select id="treatment" name="treatment">
+                    <option value="Nil">Nil</option>
+                    <option value="First Aid">First Aid</option>
+                    <option value="Ambulance">Ambulance</option>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Referred to Dr">Referred to Dr</option>
+                </select>
+                <label for="doctorName">Doctor / Hospital Name & Address:</label>
+                <input type="text" id="doctorName" name="doctorName">
+                <label for="timeLost">Time Lost:</label>
+                <select id="timeLost" name="timeLost">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <label for="dateCeased">Date Ceased:</label>
+                <input type="date" id="dateCeased" name="dateCeased">
+                <label for="returnedToWork">Returned to Work:</label>
+                <select id="returnedToWork" name="returnedToWork">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate">
+                <label for="otherInfo">Other information:</label>
+                <input type="text" id="otherInfo" name="otherInfo">
+                <div class="form-navigation">
+                    <button type="button" class="prev-btn">Previous</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <button type="button" class="return-button" id="returnToSelectionIncident">Return to Selection Page</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- First Aid Register Form -->
+    <div class="container form-container" id="firstAidForm">
+        <form id="firstAidRegisterForm">
+            <!-- Step 1: Personal Details -->
+            <div class="form-step form-step-active">
+                <h2>Personal Details</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="employeeNo">Employee No:</label>
+                <input type="text" id="employeeNo" name="employeeNo" required>
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required>
+                <label for="firstAidDate">First Aid Date:</label>
+                <input type="date" id="firstAidDate" name="firstAidDate" required>
+                <label for="firstAidTime">Time:</label>
+                <input type="time" id="firstAidTime" name="firstAidTime" required>
+                <div class="form-navigation">
+                    <button type="button" class="next-btn">Next</button>
+                    <button type="button" class="return-button" id="returnToSelectionFirstAid">Return to Selection Page</button>
+                </div>
+            </div>
+            <!-- Step 2: First Aid Details -->
+            <div class="form-step">
+                <h2>First Aid Details</h2>
+                <label for="firstAidGivenBy">First Aid Given By:</label>
+                <input type="text" id="firstAidGivenBy" name="firstAidGivenBy" required>
+                <label for="firstAidDescription">Description of First Aid:</label>
+                <textarea id="firstAidDescription" name="firstAidDescription" required></textarea>
+                <label for="furtherAction">Further Action Required:</label>
+                <textarea id="furtherAction" name="furtherAction"></textarea>
+                <div class="form-navigation">
+                    <button type="button" class="prev-btn">Previous</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                    <button type="button" class="return-button" id="returnToSelectionFirstAid">Return to Selection Page</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectionPage = document.getElementById('selectionPage');
+            const incidentForm = document.getElementById('incidentForm');
+            const firstAidForm = document.getElementById('firstAidForm');
+
+            document.querySelectorAll('.button').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const formType = event.target.getAttribute('href');
+                    selectionPage.style.opacity = '0';
+                    setTimeout(() => {
+                        selectionPage.style.display = 'none';
+                        if (formType === 'incidentForm.html') {
+                            incidentForm.classList.add('form-container-active');
+                        } else if (formType === 'firstAidForm.html') {
+                            firstAidForm.classList.add('form-container-active');
+                        }
+                        selectionPage.style.opacity = '1';
+                    }, 300);
+                });
+            });
+
+            const incidentReportForm = document.getElementById('incidentReportForm');
+            const firstAidRegisterForm = document.getElementById('firstAidRegisterForm');
+
+            incidentReportForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Incident Report Form submitted successfully!');
+                location.reload();
+            });
+
+            firstAidRegisterForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('First Aid Register Form submitted successfully!');
+                location.reload();
+            });
+
+            const steps = document.querySelectorAll('.form-step');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            const returnToSelectionIncident = document.getElementById('returnToSelectionIncident');
+            const returnToSelectionFirstAid = document.getElementById('returnToSelectionFirstAid');
+
+            let formStepIndex = 0;
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    steps[formStepIndex].classList.remove('form-step-active');
+                    steps[formStepIndex].style.opacity = '0';
+                    formStepIndex++;
+                    steps[formStepIndex].classList.add('form-step-active');
+                    steps[formStepIndex].style.opacity = '1';
+                });
+            });
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    steps[formStepIndex].classList.remove('form-step-active');
+                    steps[formStepIndex].style.opacity = '0';
+                    formStepIndex--;
+                    steps[formStepIndex].classList.add('form-step-active');
+                    steps[formStepIndex].style.opacity = '1';
+                });
+            });
+
+            returnToSelectionIncident.addEventListener('click', () => {
+                incidentForm.classList.remove('form-container-active');
+                selectionPage.style.display = 'block';
+                selectionPage.style.opacity = '1';
+            });
+
+            returnToSelectionFirstAid.addEventListener('click', () => {
+                firstAidForm.classList.remove('form-container-active');
+                selectionPage.style.display = 'block';
+                selectionPage.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
