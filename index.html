@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Main Selection Page</title>
+    <link href="assets/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Main Selection Page -->
+<div class="container" id="selectionPage">
+    <h1>Main Selection Page</h1>
+    <a class="button" href="incidentForm.html">Incident / Accident Report Form</a>
+    <a class="button" href="firstAidForm.html">First Aid Register Form</a>
+</div>
+
+<!-- Incident / Accident Report Form -->
+<div class="container form-container" id="incidentForm">
+    <!-- Step 1: Type -->
+    <form name="incidentReportForm" method="POST" data-netlify="true">
+        <!-- Add a hidden input for form name -->
+        <input type="hidden" name="form-name" value="incidentReportForm">
+        <div class="form-step form-step-active">
+            <h2>Type</h2>
+            <label><input name="type" type="checkbox" value="Injury"/> Injury</label>
+            <label><input name="type" type="checkbox" value="Fatality"/> Fatality</label>
+            <label><input name="type" type="checkbox" value="Environmental Harm"/> Environmental Harm</label>
+            <label><input name="type" type="checkbox" value="Work caused illness"/> Work caused illness</label>
+            <label><input name="type" type="checkbox" value="Property Damage"/> Property Damage</label>
+            <label><input name="type" type="checkbox" value="Near miss"/> Near miss</label>
+            <label><input name="type" type="checkbox" value="Other"/> Other</label>
+            <div class="form-navigation">
+                <button class="next-btn" type="button">Next</button>
+                <button class="return-button" id="returnToSelectionIncident" type="button">Return to Selection Page</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Personal Details -->
+        <div class="form-step">
+            <h2>Personal Details</h2>
+            <label for="reportedBy">Incident Reported by:</label>
+            <input id="reportedBy" name="reportedBy" required="" type="text"/>
+            <label for="employeeNo">Employee No:</label>
+            <input id="employeeNo" name="employeeNo" required="" type="text"/>
+            <label for="involvedPerson">Involved Person (if different from above):</label>
+            <input id="involvedPerson" name="involvedPerson" type="text"/>
+            <label for="dob">Date of Birth:</label>
+            <input id="dob" name="dob" type="date"/>
+            <label for="occupation">Occupation:</label>
+            <input id="occupation" name="occupation" type="text"/>
+            <label for="tel">Tel:</label>
+            <input id="tel" name="tel" type="text"/>
+            <label for="homeAddress">Home Address:</label>
+            <input id="homeAddress" name="homeAddress" type="text"/>
+            <label for="workplace">Workplace:</label>
+            <input id="workplace" name="workplace" type="text"/>
+            <label for="division">Division:</label>
+            <input id="division" name="division" type="text"/>
+            <label for="phoneNumber">Phone Number:</label>
+            <input id="phoneNumber" name="phoneNumber" type="text"/>
+            <label for="immediateManager">Immediate Manager/In charge:</label>
+            <input id="immediateManager" name="immediateManager" type="text"/>
+            <label for="startTime">Start time:</label>
+            <input id="startTime" name="startTime" type="time"/>
+            <label for="experience">Experience in the job (years/months):</label>
+            <input id="experience" name="experience" type="text"/>
+            <label for="workArrangement">Work arrangement:</label>
+            <select id="workArrangement" name="workArrangement">
+                <option value="Casual">Casual</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="form-navigation">
+                <button class="prev-btn" type="button">Previous</button>
+                <button class="next-btn" type="button">Next</button>
+                <button class="return-button" id="returnToSelectionIncident" type="button">Return to Selection Page</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Incident Details -->
+        <div class="form-step">
+            <h2>Incident Details</h2>
+            <label for="incidentDate">Incident Date:</label>
+            <input id="incidentDate" name="incidentDate" required="" type="date"/>
+            <label for="incidentTime">Time Incident:</label>
+            <input id="incidentTime" name="incidentTime" required="" type="time"/>
+            <label for="dateReported">Date Reported:</label>
+            <input id="dateReported" name="dateReported" required="" type="date"/>
+            <label for="reportedTo">Reported to whom:</label>
+            <input id="reportedTo" name="reportedTo" required="" type="text"/>
+            <label for="event">Event:</label>
+            <input id="event" name="event" required="" type="text"/>
+            <label for="damage">Damage:</label>
+            <textarea id="damage" name="damage" required=""></textarea>
+            <label for="actionsTaken">Actions Taken:</label>
+            <textarea id="actionsTaken" name="actionsTaken" required=""></textarea>
+            <label for="injuryType">Injury Type (First aid, Lost time, etc.):</label>
+            <input id="injuryType" name="injuryType" type="text"/>
+            <label for="bodyLocation">Body location (e.g., left hand):</label>
+            <input id="bodyLocation" name="bodyLocation" type="text"/>
+            <label for="treatment">Treatment:</label>
+            <select id="treatment" name="treatment">
+                <option value="Nil">Nil</option>
+                <option value="First Aid">First Aid</option>
+                <option value="Ambulance">Ambulance</option>
+                <option value="Hospital">Hospital</option>
+                <option value="Referred to Dr">Referred to Dr</option>
+            </select>
+            <label for="doctorName">Doctor / Hospital Name &amp; Address:</label>
+            <input id="doctorName" name="doctorName" type="text"/>
+            <label for="timeLost">Time Lost:</label>
+            <select id="timeLost" name="timeLost">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="dateCeased">Date Ceased:</label>
+            <input id="dateCeased" name="dateCeased" type="date"/>
+            <label for="returnedToWork">Returned to Work:</label>
+            <select id="returnedToWork" name="returnedToWork">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="returnDate">Return Date:</label>
+            <input id="returnDate" name="returnDate" type="date"/>
+            <label for="otherInfo">Other information:</label>
+            <input id="otherInfo" name="otherInfo" type="text"/>
+            <div class="form-navigation">
+                <button class="prev-btn" type="button">Previous</button>
+                <button class="submit-btn" type="submit">Submit</button>
+                <button class="return-button" id="returnToSelectionIncident" type="button">Return to Selection Page</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- First Aid Register Form -->
+<div class="container form-container" id="firstAidForm">
+    <form name="firstAidRegisterForm" method="POST" data-netlify="true">
+        <!-- Add a hidden input for form name -->
+        <input type="hidden" name="form-name" value="firstAidRegisterForm">
+        <!-- Step 1: Personal Details -->
+        <div class="form-step form-step-active">
+            <h2>Personal Details</h2>
+            <label for="name">Name:</label>
+            <input id="name" name="name" required="" type="text"/>
+            <label for="employeeNo">Employee No:</label>
+            <input id="employeeNo" name="employeeNo" required="" type="text"/>
+            <label for="department">Department:</label>
+            <input id="department" name="department" required="" type="text"/>
+            <label for="firstAidDate">First Aid Date:</label>
+            <input id="firstAidDate" name="firstAidDate" required="" type="date"/>
+            <label for="firstAidTime">Time:</label>
+            <input id="firstAidTime" name="firstAidTime" required="" type="time"/>
+            <div class="form-navigation">
+                <button class="next-btn" type="button">Next</button>
+                <button class="return-button" id="returnToSelectionFirstAid" type="button">Return to Selection Page</button>
+            </div>
+        </div>
+
+        <!-- Step 2: First Aid Details -->
+        <div class="form-step">
+            <h2>First Aid Details</h2>
+            <label for="firstAidGivenBy">First Aid Given By:</label>
+            <input id="firstAidGivenBy" name="firstAidGivenBy" required="" type="text"/>
+            <label for="firstAidDescription">Description of First Aid:</label>
+            <textarea id="firstAidDescription" name="firstAidDescription" required=""></textarea>
+            <label for="furtherAction">Further Action Required:</label>
+            <textarea id="furtherAction" name="furtherAction"></textarea>
+            <div class="form-navigation">
+                <button class="prev-btn" type="button">Previous</button>
+                <button class="submit-btn" type="submit">Submit</button>
+                <button class="return-button" id="returnToSelectionFirstAid" type="button">Return to Selection Page</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
